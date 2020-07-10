@@ -13,35 +13,35 @@
 
 
 .profile {
-    padding: 0 19px 50px 19px;
-    margin: 0 auto;
-    width: 920px;
-    max-width: 100%;
+  padding: 0 19px 50px 19px;
+  margin: 0 auto;
+  width: 920px;
+  max-width: 100%;
 
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    display: grid;
-    grid-template-columns: repeat(3, minmax(min-content, max-content));
-    grid-template-rows: minmax(min-content, max-content);
-    grid-column-gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(min-content, max-content));
+  grid-template-rows: minmax(min-content, max-content);
+  grid-column-gap: 30px;
 }
 
 @media screen and (max-width: 920px)
 {
-    .profile {
-        padding-bottom: 33px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
+  .profile {
+    padding-bottom: 33px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 320px)
 {
-    .profile {
-        padding-left: 0;
-        padding-right: 0;
-    }
+  .profile {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

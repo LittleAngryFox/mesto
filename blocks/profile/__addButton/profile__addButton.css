@@ -1,38 +1,38 @@
 .profile__addButton {
-    height: 50px;
-    width: 150px;
+  height: 50px;
+  width: 150px;
 
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 
-    border: 0;
-    outline: none;
+  border: 0;
+  outline: none;
 
-    box-sizing: border-box;
-    background-color: black;
-    background-image: url("../../../images/Add\ Button.png");
+  box-sizing: border-box;
+  background-color: black;
+  background-image: url("../../../images/Add\ Button.png");
 
-    align-self: center;
-    justify-self: right;
+  align-self: center;
+  justify-self: right;
 
-    grid-column-start: -1;
-    transition: background-image 0.3s ease-in-out;
+  grid-column-start: -1;
+  transition: background-image 0.3s ease-in-out;
 }
 
 .profile__addButton:hover {
-    background-image: url("../../../images/Add\ Button_hover.png");
-    cursor: pointer;
+  background-image: url("../../../images/Add\ Button_hover.png");
+  cursor: pointer;
 }
 
 
 @media screen and (max-width: 920px)
 {
-    .profile__addButton {
-        width: 282px;
-        background-image: url("../../../images/Add\ Button\ large.png");
-    }
+  .profile__addButton {
+    width: 282px;
+    background-image: url("../../../images/Add\ Button\ large.png");
+  }
 
-    .profile__addButton:hover {
-        background-image: url("../../../images/Add\ Button\ large_hover.png");
-    }
+  .profile__addButton:hover {
+    background-image: url("../../../images/Add\ Button\ large_hover.png");
+  }
 }

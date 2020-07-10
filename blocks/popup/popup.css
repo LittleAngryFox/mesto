@@ -13,14 +13,13 @@
 
 
 .popup {
-    display: none;
-    
-    width:100vw;
-    min-height:100vh;
-    background-color: rgba(0,0,0,0.5);
-    overflow:hidden;
-    position:fixed;
-    top: 0;
-    left: 0;
+  display: none;
 
+  width:100vw;
+  min-height:100vh;
+  background-color: rgba(0,0,0,0.5);
+  overflow:hidden;
+  position:fixed;
+  top: 0;
+  left: 0;
 }

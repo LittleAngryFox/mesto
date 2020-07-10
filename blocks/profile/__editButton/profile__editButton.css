@@ -1,26 +1,26 @@
 .profile__editButton {
-    height: 24px;
-    width: 24px;
+  height: 24px;
+  width: 24px;
 
-    padding: 0;
-    margin: 0 0 14px 0;
+  padding: 0;
+  margin: 0 0 14px 0;
 
-    border: 0;
-    outline: none;
+  border: 0;
+  outline: none;
 
-    box-sizing: border-box;
-    background-color: black;
-    background-image: url("../../../images/Edit\ Button.png");
+  box-sizing: border-box;
+  background-color: black;
+  background-image: url("../../../images/Edit\ Button.png");
 
-    align-self: end;
-    justify-self: center;
+  align-self: end;
+  justify-self: center;
 
-    grid-area: profile__editButton;
-    
-    transition: background-image 0.3s ease-in-out;
+  grid-area: profile__editButton;
+
+  transition: background-image 0.3s ease-in-out;
 }
 
 .profile__editButton:hover {
-    background-image: url("../../../images/Edit\ Button_hover.png");
-    cursor: pointer;
+  background-image: url("../../../images/Edit\ Button_hover.png");
+  cursor: pointer;
 }

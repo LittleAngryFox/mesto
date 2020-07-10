@@ -1,19 +1,18 @@
-
 .footer__copyright {
-    margin: 0;
-    padding: 0;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 22px;
+  margin: 0;
+  padding: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
 
-    color: #545454;
+  color: #545454;
 }
 
 @media screen and (max-width: 602px)
 {
-    .footer__copytight {
-        font-size: 14px;
-        line-height: 1.21;
-    }
+  .footer__copytight {
+    font-size: 14px;
+    line-height: 1.21;
+  }
 }

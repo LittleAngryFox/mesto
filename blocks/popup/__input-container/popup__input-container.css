@@ -1,17 +1,13 @@
 .popup__input-container {
+  margin: 0;
+  padding: 0 0 0 36.51px;
+  border: 0;
+  box-sizing: border-box;
+}
 
-    margin: 0;
-    padding: 0 0 0 36.51px;
-    border: 0; 
-    box-sizing: border-box;
-   }
- 
-   @media screen and (max-width: 540px)
- {
-     .popup__input-container  {
-         padding-left: 15px;
-         width: 250px;
- 
-     }
- }
- 
+@media screen and (max-width: 540px) {
+  .popup__input-container  {
+    padding-left: 15px;
+    width: 250px;
+  }
+}

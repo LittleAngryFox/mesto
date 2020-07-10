@@ -1,7 +1,7 @@
 .header__line {
-    margin: 0;
-    border: none; /* Убираем границу */
-    background-color:rgba(54, 54, 54, 0.7);; /* Цвет линии */
-    color: rgba(54, 54, 54, 0.7);; /* Цвет линии для IE6-7 */
-    height: 1px; /* Толщина линии */    
+  margin: 0;
+  border: none; /* Убираем границу */
+  background-color:rgba(54, 54, 54, 0.7);; /* Цвет линии */
+  color: rgba(54, 54, 54, 0.7);; /* Цвет линии для IE6-7 */
+  height: 1px; /* Толщина линии */
 }
