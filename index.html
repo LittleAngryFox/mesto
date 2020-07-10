@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Mesto Russia</title>
+</head>
+
+<body>
+  <div class="page">
+
+    <header class="header">
+        <img src="./images/logo.png" alt="Белый логотип Место Россия" class="header__logo">
+        <hr class="header__line">
+    </header>
+
+    <main class="content">
+
+        <div class="popup">
+            <form class="popup__container">
+                <h2 class="popup__heading">Редактировать профиль</h2>
+                <fieldset class="popup__input-container">
+                <input type="text" maxlength="25" class="popup__item" id="heading" name="heading" placeholder="Имя профиля" required>
+                <input type="text" maxlength="40" class="popup__item" id="subheading" name="subheading" placeholder="Краткое описание" required>
+                <button type=submit class="popup__saveButton">Сохранить</button>
+                <button type=reset class="popup__closeButton"></button>
+            </form>
+        </div>
+
+       <section class="profile">
+          <img src="./images/Jack-Iv Kusto_avatar.jpg" alt="Жак-Ив Кусто" class="profile__photo">
+           
+          <div class="profile__info">
+              <h1 class="profile__title">Жак-Ив Кусто</h1>
+              <button class="profile__editButton"></button>
+              <p class="profile__subtitle">Исследователь океана</p>
+           </div> 
+
+           <button class="profile__addButton"></button>
+       </section>
+
+      <section class="elements">
+          <ul class="elements__list">
+
+            <li class="elements__item">
+                <figure class="element">
+                    <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Замок в Карачаевске" class="element__img">
+                    <figcaption class="element__title">Карачаевск</figcaption>
+                    <button class="element__likeButton"></button>
+                </figure>
+            </li>
+
+            <li class="elements__item">
+                <figure class="element">
+                    <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус на закате" class="element__img">
+                    <figcaption class="element__title">Гора Эльбрус</figcaption>
+                    <button class="element__likeButton"></button>
+                </figure>
+            </li>
+
+            <li class="elements__item">
+                <figure class="element">
+                    <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Горы Домбай" class="element__img">
+                    <figcaption class="element__title">Домбай</figcaption>
+                    <button class="element__likeButton"></button>
+                </figure>
+            </li>
+
+            <li class="elements__item">
+                <figure class="element">
+                    <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус на закате" class="element__img">
+                    <figcaption class="element__title">Гора Эльбрус</figcaption>
+                    <button class="element__likeButton"></button>
+                </figure>
+            </li>
+
+            <li class="elements__item">
+                <figure class="element">
+                    <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Горы Домбай" class="element__img">
+                    <figcaption class="element__title">Домбай</figcaption>
+                    <button class="element__likeButton"></button>
+                </figure>
+            </li>
+            
+            <li class="elements__item">
+                <figure class="element">
+                    <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Замок в Карачаевске" class="element__img">
+                    <figcaption class="element__title">Карачаево-Черкесская</figcaption>
+                    <button class="element__likeButton"></button>
+                </figure>
+            </li>
+
+          </ul>
+      
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2020. Ильина Елена</p>
+    </footer>
+
+  </div>
+
+  <script src="./blocks/popup/popup.js"></script>
+</body>
+
+</html>

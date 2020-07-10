@@ -1,0 +1,27 @@
+@import url(./__img/element__img.css);
+@import url(./__title/element__title.css);
+@import url(./__likeButton/element__likeButton.css);
+
+.element {
+    margin: 0;
+    padding: 0 0 31px 0;
+
+    max-width: 282px;
+    height: 100%;
+
+    box-sizing: border-box;
+
+    background-color: #FFFFFF;
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(min-content, max-content));
+    grid-template-rows: repeat(2, minmax(min-content, max-content));
+    grid-row-gap: 25px;
+
+    grid-template-areas:
+    "element__img element__img"
+    "element__title element__likeButton";
+}

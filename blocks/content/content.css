@@ -1,0 +1,9 @@
+
+.content {
+    width: 100%;
+    min-width: 300px; /*одна карточка*/
+
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
