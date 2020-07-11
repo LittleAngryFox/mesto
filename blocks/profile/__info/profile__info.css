@@ -7,8 +7,8 @@
   grid-column-gap: 17px;
 
   grid-template-areas:
-  "profile__title profile__editButton"
-  "profile__subtitle profile__subtitle"
+  "profile__title profile__edit-button"
+  "profile__subtitle profile__subtitle";
 }
 
 @media screen and (max-width: 920px)

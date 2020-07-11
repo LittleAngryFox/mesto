@@ -2,14 +2,12 @@
 
 @import url(../profile/__info/profile__info.css);
 
-@import url(../profile/__editButton/profile__editButton.css);
-@import url(../profile/__editButtonImg/profile__editButtonImg.css);
+@import url(../profile/__edit-button/profile__edit-button.css);
 
 @import url(../profile/__title/profile__title.css);
 @import url(../profile/__subtitle/profile__subtitle.css);
 
-@import url(../profile/__addButton/profile__addButton.css);
-@import url(../profile/__addButtonImg/profile__addButtonImg.css);
+@import url(../profile/__add-button/profile__add-button.css);
 
 
 .profile {

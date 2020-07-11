@@ -1,6 +1,6 @@
 @import url(./__img/element__img.css);
 @import url(./__title/element__title.css);
-@import url(./__likeButton/element__likeButton.css);
+@import url(./__like-button/element__like-button.css);
 
 .element {
   margin: 0;

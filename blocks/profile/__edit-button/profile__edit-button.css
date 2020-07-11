@@ -1,4 +1,4 @@
-.profile__editButton {
+.profile__edit-button {
   height: 24px;
   width: 24px;
 
@@ -10,17 +10,17 @@
 
   box-sizing: border-box;
   background-color: black;
-  background-image: url("../../../images/Edit\ Button.png");
+  background-image: url("../../../images/Edit_Button.svg");
 
   align-self: end;
   justify-self: center;
 
-  grid-area: profile__editButton;
+  grid-area: profile__edit-button;
 
   transition: background-image 0.3s ease-in-out;
 }
 
-.profile__editButton:hover {
-  background-image: url("../../../images/Edit\ Button_hover.png");
+.profile__edit-button:hover {
+  background-image: url("../../../images/Edit_Button_hover.svg");
   cursor: pointer;
 }

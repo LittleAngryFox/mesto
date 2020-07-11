@@ -1,4 +1,4 @@
-.element__likeButton {
+.element__like-button {
   height: 18.13px;
   width: 48px;
   padding: 0;
@@ -19,7 +19,7 @@
   transition: background-image 0.3s ease-in-out;
 }
 
-.element__likeButton:hover {
+.element__like-button:hover {
   background-image: url("../../../images/Like-red.png");
   cursor: pointer;
 }

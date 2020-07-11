@@ -12,36 +12,42 @@
   <div class="page">
 
     <header class="header">
-      <img src="./images/logo.png" alt="Белый логотип Место Россия" class="header__logo">
-      <hr class="header__line">
+      <img src="./images/logo.svg" alt="Белый логотип Место Россия" class="header__logo">
     </header>
 
     <main class="content">
 
       <div class="popup">
-        <form class="popup__container">
+        <form class="popup__container" name="popup__container">
           <h2 class="popup__heading">Редактировать профиль</h2>
+
           <fieldset class="popup__input-container">
+
             <input type="text" maxlength="25" class="popup__item" id="heading" name="heading" placeholder="Имя профиля"
               required>
             <input type="text" maxlength="40" class="popup__item" id="subheading" name="subheading"
               placeholder="Краткое описание" required>
-            <button type=submit class="popup__saveButton">Сохранить</button>
-            <button type=reset class="popup__closeButton"></button>
+
+            <button type="submit" class="popup__save-button">Сохранить</button>
+            <button type="reset" class="popup__close-button"></button>
+
           </fieldset>
         </form>
       </div>
 
+
       <section class="profile">
+
         <img src="./images/Jack-Iv_Kusto_avatar.jpg" alt="Жак-Ив Кусто" class="profile__photo">
 
         <div class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
-          <button class="profile__editButton"></button>
+          <button type="button" class="profile__edit-button"></button>
           <p class="profile__subtitle">Исследователь океана</p>
         </div>
 
-        <button class="profile__addButton"></button>
+        <button type="button" class="profile__add-button"></button>
+
       </section>
 
       <section class="elements">
@@ -52,7 +58,7 @@
             <div class="element">
               <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Замок в Карачаевске" class="element__img">
               <p class="element__title">Карачаевск</p>
-              <button class="element__likeButton"></button>
+              <button type="button" class="element__like-button"></button>
             </div>
           </li>
 
@@ -60,7 +66,7 @@
             <div class="element">
               <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус на закате" class="element__img">
               <p class="element__title">Гора Эльбрус</p>
-              <button class="element__likeButton"></button>
+              <button type="button" class="element__like-button"></button>
             </div>
           </li>
 
@@ -68,7 +74,7 @@
             <div class="element">
               <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Горы Домбай" class="element__img">
               <p class="element__title">Домбай</p>
-              <button class="element__likeButton"></button>
+              <button type="button" class="element__like-button"></button>
             </div>
           </li>
 
@@ -76,7 +82,7 @@
             <div class="element">
               <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус на закате" class="element__img">
               <p class="element__title">Гора Эльбрус</p>
-              <button class="element__likeButton"></button>
+              <button type="button" class="element__like-button"></button>
             </div>
           </li>
 
@@ -84,7 +90,7 @@
             <div class="element">
               <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Горы Домбай" class="element__img">
               <p class="element__title">Домбай</p>
-              <button class="element__likeButton"></button>
+              <button type="button" class="element__like-button"></button>
             </div>
           </li>
 
@@ -92,7 +98,7 @@
             <div class="element">
               <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Замок в Карачаевске" class="element__img">
               <p class="element__title">Карачаево-Черкесская</p>
-              <button class="element__likeButton"></button>
+              <button type="button" class="element__like-button"></button>
             </div>
           </li>
 
