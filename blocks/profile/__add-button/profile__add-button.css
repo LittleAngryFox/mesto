@@ -29,7 +29,7 @@
 {
   .profile__add-button {
     width: 282px;
-    background-image: url("../../../images/Add\ Button\ large.png");
+    background-image: url("../../../images/Add_Button_large.svg");
   }
 
   .profile__add-button:hover {
