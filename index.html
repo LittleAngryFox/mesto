@@ -31,9 +31,9 @@
 
           <fieldset class="popup__input-container">
 
-            <input type="text" maxlength="25" class="popup__item" id="heading" name="heading" placeholder="Имя профиля"
+            <input type="text" maxlength="25" class="popup__item popup__item_heading" id="heading" name="heading" placeholder="Имя профиля"
               required>
-            <input type="text" maxlength="40" class="popup__item" id="subheading" name="subheading"
+            <input type="text" maxlength="40" class="popup__item popup__item_subheading" id="subheading" name="subheading"
               placeholder="Краткое описание" required>
 
             <button type="submit" class="popup__button popup__button_save">Сохранить</button>
@@ -49,8 +49,8 @@
 
           <fieldset class="popup__input-container">
 
-            <input type="text" class="popup__item" id="picture" name="heading" placeholder="Название" required>
-            <input type="url" class="popup__item" id="imgurl" name="subheading" placeholder="Ссылка на картинку"
+            <input type="text" class="popup__item popup__item_picture" id="picture" name="heading" placeholder="Название" required>
+            <input type="url" class="popup__item popup__item_imgurl" id="imgurl" name="url" placeholder="Ссылка на картинку"
               required>
 
             <button type="submit" class="popup__button popup__button_add">Создать</button>
@@ -86,7 +86,7 @@
 
   </div>
 
-  <template id="card">
+  <template id="card" class="card__template">
     <li class="elements__item">
       <div class="element">
         <img src="#" alt="Шаблон" class="element__img">
@@ -96,7 +96,8 @@
       </div>
     </li>
   </template>
-  <script src="./blocks/popup/popup.js"></script>
+  <script src="./scripts/initial-сards.js"></script> "
+  <script src="./scripts/spript.js"></script>
 </body>
 
 </html>
