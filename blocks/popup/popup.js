@@ -2,7 +2,7 @@ const content = document.querySelector(".content");
 //-------------------------------------
 const popupEdit = content.querySelector(".popup_edit-profile"); //блок редактирования профиля
 const popupAdd = content.querySelector(".popup_add"); //блок добавления катинки
-const popupImg = content.querySelector(".popup__image"); //блок добавления увеличенной катинки
+const popupImg = content.querySelector(".popup_image"); //блок добавления увеличенной катинки
 //-------------------------------------
 const profile = content.querySelector(".profile");//Информация о имени и сфере деятельности
 let profileTitle = profile.querySelector(".profile__title");
