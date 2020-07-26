@@ -26,6 +26,7 @@ const cardList = document.querySelector(".elements__list");
 //-------------------------------------
 
 
+
 //открытие картинки
 function openingBigImage(evt) {
   popupImg.classList.add("popup_opened");
@@ -58,17 +59,17 @@ function createCard(itemLink, itemName) {
   return card;
 }
 
-//отображение информации на странице. добавление в начало
-function renderCard(place, element) {
-  place.prepend(element);
-  return;
-}
-
 // наполняем начальным содержимым
 initialCards.forEach(function (item) {
   const card = createCard(item.link, item.name);
   cardList.append(card);
 });
+
+//отображение информации на странице. добавление в начало
+function renderCard(place, element) {
+  place.prepend(element);
+  return;
+}
 
 //открытие/закрытие popup окон
 function displayPopupItem(evt) {
