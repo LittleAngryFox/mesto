@@ -39,7 +39,7 @@ function openingBigImage(evt) {
 function createCard(itemLink, itemName) {
   //копия шаблона
   const card = cardTemplate.cloneNode(true);
-  const cardImg =  card.querySelector(".element__img");
+  const cardImg = card.querySelector(".element__img");
   cardImg.src = itemLink;
   card.querySelector(".element__title").textContent = itemName;
   cardImg.alt = itemName;
@@ -76,25 +76,25 @@ function displayPopupItem(evt) {
   evt.preventDefault();
   const eventTarget = evt.target;
 
-    //редактируется профиль
-    if (eventTarget.classList.contains("profile__edit-button")) {
-      popupEdit.classList.toggle("popup_opened");
-      nameInput.value = profileTitle.textContent; //устанавливаем значения
-      jobInput.value = profileSubtitle.textContent;
-    }
+  //редактируется профиль
+  if (eventTarget.classList.contains("profile__edit-button")) {
+    popupEdit.classList.toggle("popup_opened");
+    nameInput.value = profileTitle.textContent; //устанавливаем значения
+    jobInput.value = profileSubtitle.textContent;
+  }
 
-    //добавляется картинка
-    if (eventTarget.classList.contains("profile__add-button")) {
-      popupAdd.classList.toggle("popup_opened");
-      urlImage.value = ""; //устанавливаем значения
-      nameImage.value = "";
-    }
+  //добавляется картинка
+  if (eventTarget.classList.contains("profile__add-button")) {
+    popupAdd.classList.toggle("popup_opened");
+    urlImage.value = ""; //устанавливаем значения
+    nameImage.value = "";
+  }
 
-    if(eventTarget.classList.contains("popup__container_edit"))
-      popupEdit.classList.toggle("popup_opened");
+  if (eventTarget.classList.contains("popup__container_edit"))
+    popupEdit.classList.toggle("popup_opened");
 
-    if(eventTarget.classList.contains("popup__container_add"))
-      popupAdd.classList.toggle("popup_opened");
+  if (eventTarget.classList.contains("popup__container_add"))
+    popupAdd.classList.toggle("popup_opened");
 
 }
 
