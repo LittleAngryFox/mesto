@@ -134,6 +134,7 @@ function maxImg(evt) {
   popupImg.classList.add("popup_opened");
   popupImgItem.src = evt.target.src;
   popupCaption.textContent = evt.target.alt;
+  popupImgItem.alt = evt.target.alt;
 }
 
 //отслеживание нажатия на кнопку редактирования
