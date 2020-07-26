@@ -6,15 +6,17 @@
 
 @import url(./__item/popup__item.css);
 
-@import url(./__save-button/popup__save-button.css);
-
+@import url(./__button/popup__button.css);
 @import url(./__close-button/popup__close-button.css);
+@import url(./__close-button/_img/popup__close-button_img.css);
+
+@import url(./__img/popup__img.css);
+@import url(./__caption/popup__caption.css);
+@import url(./__img-item/popup__img-item.css);
 
 
 
 .popup {
-  display: none;
-
   width:100vw;
   height: 100vh;
   background-color: rgba(0,0,0,0.5);
@@ -22,4 +24,9 @@
   position:fixed;
   top: 0;
   left: 0;
+  z-index: 1;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: .55s opacity, .55s visibility;
 }

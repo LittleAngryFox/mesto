@@ -1,0 +1,24 @@
+.element__remove {
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  position: absolute;
+  top: 10px;
+  left: 250px;
+
+  padding: 0;
+  margin: 0;
+
+  border: 0;
+  outline: none;
+
+  background-image: url("../../../images/Trash.svg");
+  transition: background-image 0.3s ease-in-out;
+}
+
+.element__remove:hover {
+  background-image: url("../../../images/Trash_hover.svg");
+  cursor: pointer;
+}

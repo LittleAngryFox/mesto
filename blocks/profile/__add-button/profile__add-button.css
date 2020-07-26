@@ -6,21 +6,24 @@
   margin: 0;
 
   border: 0;
-  outline: none;
+  outline: 1px white solid;
 
   box-sizing: border-box;
   background-color: black;
-  background-image: url("../../../images/Add_Button.svg");
+  background-image: url("../../../images/plus-add.svg");
+  background-repeat: no-repeat;
+  background-position: center;
 
   align-self: center;
   justify-self: right;
 
   grid-column-start: -1;
-  transition: background-image 0.3s ease-in-out;
+  transition: 0.3s background-image, 0.3s outline-color ease-in-out;
 }
 
 .profile__add-button:hover {
-  background-image: url("../../../images/Add_Button_hover.svg");
+  outline: 1px gray solid;
+  background-image: url("../../../images/plus-add-hover.svg");
   cursor: pointer;
 }
 
@@ -29,10 +32,5 @@
 {
   .profile__add-button {
     width: 282px;
-    background-image: url("../../../images/Add_Button_large.svg");
-  }
-
-  .profile__add-button:hover {
-    background-image: url("../../../images/Add\ Button\ large_hover.png");
   }
 }

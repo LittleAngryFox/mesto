@@ -1,0 +1,12 @@
+.element__like-button_active {
+
+  background-image: url("../../../../images/check-like.svg");
+  background-repeat: no-repeat;
+  background-color: white;
+
+  transition: background-image 0.3s ease-in-out;
+}
+
+.element__like-button_active:hover {
+  background-image: url("../../../../images/check-like.svg");
+}

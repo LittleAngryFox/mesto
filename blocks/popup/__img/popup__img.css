@@ -1,0 +1,13 @@
+.popup__img {
+  margin: 0;
+  padding: 0;
+  max-width: 75vw;
+  max-height: 75vh;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+

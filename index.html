@@ -17,8 +17,16 @@
 
     <main class="content">
 
-      <div class="popup">
-        <form class="popup__container" name="popup__container">
+      <div class="popup popup__image">
+        <figure class="popup__img">
+          <img class="popup__img-item" alt="Увеличенное изображение" src="#">
+          <button type="button" class="popup__close-button popup__close-button_img"></button>
+          <figcaption class="popup__caption"></figcaption>
+        </figure>
+      </div>
+
+      <div class="popup popup_edit-profile">
+        <form class="popup__container popup__container_edit" name="popup__container">
           <h2 class="popup__heading">Редактировать профиль</h2>
 
           <fieldset class="popup__input-container">
@@ -28,7 +36,24 @@
             <input type="text" maxlength="40" class="popup__item" id="subheading" name="subheading"
               placeholder="Краткое описание" required>
 
-            <button type="submit" class="popup__save-button">Сохранить</button>
+            <button type="submit" class="popup__button popup__button_save">Сохранить</button>
+            <button type="reset" class="popup__close-button"></button>
+
+          </fieldset>
+        </form>
+      </div>
+
+      <div class="popup popup_add">
+        <form class="popup__container popup__container_add" name="popup__container">
+          <h2 class="popup__heading">Новое место</h2>
+
+          <fieldset class="popup__input-container">
+
+            <input type="text" class="popup__item" id="picture" name="heading" placeholder="Название" required>
+            <input type="text" class="popup__item" id="imgurl" name="subheading" placeholder="Ссылка на картинку"
+              required>
+
+            <button type="submit" class="popup__button popup__button_add">Создать</button>
             <button type="reset" class="popup__close-button"></button>
 
           </fieldset>
@@ -49,59 +74,9 @@
       </section>
 
       <section class="elements">
-
         <ul class="elements__list">
 
-          <li class="elements__item">
-            <div class="element">
-              <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Замок в Карачаевске" class="element__img">
-              <p class="element__title">Карачаевск</p>
-              <button type="button" class="element__like-button"></button>
-            </div>
-          </li>
-
-          <li class="elements__item">
-            <div class="element">
-              <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус на закате" class="element__img">
-              <p class="element__title">Гора Эльбрус</p>
-              <button type="button" class="element__like-button"></button>
-            </div>
-          </li>
-
-          <li class="elements__item">
-            <div class="element">
-              <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Горы Домбай" class="element__img">
-              <p class="element__title">Домбай</p>
-              <button type="button" class="element__like-button"></button>
-            </div>
-          </li>
-
-          <li class="elements__item">
-            <div class="element">
-              <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус на закате" class="element__img">
-              <p class="element__title">Гора Эльбрус</p>
-              <button type="button" class="element__like-button"></button>
-            </div>
-          </li>
-
-          <li class="elements__item">
-            <div class="element">
-              <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Горы Домбай" class="element__img">
-              <p class="element__title">Домбай</p>
-              <button type="button" class="element__like-button"></button>
-            </div>
-          </li>
-
-          <li class="elements__item">
-            <div class="element">
-              <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Замок в Карачаевске" class="element__img">
-              <p class="element__title">Карачаево-Черкесская</p>
-              <button type="button" class="element__like-button"></button>
-            </div>
-          </li>
-
         </ul>
-
       </section>
     </main>
 
@@ -111,6 +86,16 @@
 
   </div>
 
+  <template id="card">
+    <li class="elements__item">
+      <div class="element">
+        <img src="#" alt="Шаблон" class="element__img">
+        <p class="element__title"></p>
+        <button type="button" class="element__remove"></button>
+        <button type="button" class="element__like-button"></button>
+      </div>
+    </li>
+  </template>
   <script src="./blocks/popup/popup.js"></script>
 </body>
 

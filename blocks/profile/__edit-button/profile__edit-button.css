@@ -6,21 +6,24 @@
   margin: 0 0 14px 0;
 
   border: 0;
-  outline: none;
+  outline: 1px white solid;
 
   box-sizing: border-box;
   background-color: black;
-  background-image: url("../../../images/Edit_Button.svg");
+  background-image: url("../../../images/pencil.svg");
+  background-repeat: no-repeat;
+  background-position: center;
 
   align-self: end;
   justify-self: center;
 
   grid-area: profile__edit-button;
 
-  transition: background-image 0.3s ease-in-out;
+  transition: 0.3s background-image, 0.3s outline-color ease-in-out;
 }
 
 .profile__edit-button:hover {
-  background-image: url("../../../images/Edit_Button_hover.svg");
+  outline: 1px gray solid;
+  background-image: url("../../../images/pencil-hover.svg");
   cursor: pointer;
 }
