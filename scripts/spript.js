@@ -5,10 +5,10 @@ const popupAdd = content.querySelector(".popup_add"); //блок добавле�
 const popupImg = content.querySelector(".popup_image"); //блок добавления увеличенной катинки
 //-------------------------------------
 const profile = content.querySelector(".profile");//Информация о имени и сфере деятельности
-let profileTitle = profile.querySelector(".profile__title");
-let profileSubtitle = profile.querySelector(".profile__subtitle");
-let popupImgItem = popupImg.querySelector(".popup__img-item"); //Информация о картинке
-let popupCaption = popupImg.querySelector(".popup__caption");
+const profileTitle = profile.querySelector(".profile__title");
+const profileSubtitle = profile.querySelector(".profile__subtitle");
+const popupImgItem = popupImg.querySelector(".popup__img-item"); //Информация о картинке
+const popupCaption = popupImg.querySelector(".popup__caption");
 //-------------------------------------
 const editButton = profile.querySelector(".profile__edit-button"); //кнопка редактирования
 const addButton = profile.querySelector(".profile__add-button"); //кнопка добавления
@@ -26,16 +26,60 @@ const cardList = document.querySelector(".elements__list");
 //-------------------------------------
 
 
+//открытие/закрытие popup окон
+function openPopupItem(popupForm) {
+  popupForm.classList.add("popup_opened");
+}
 
-//открытие картинки
-function openingBigImage(evt) {
-  popupImg.classList.add("popup_opened");
+function closePopupItem(popupForm) {
+  popupForm.classList.remove("popup_opened");
+}
+
+function choosePopupClose(evt) {
+  closePopupItem(evt.target.closest(".popup"));
+}
+
+function createProfileContent(evt)
+{
+  evt.preventDefault();
+  nameInput.value = profileTitle.textContent; //устанавливаем значения
+  jobInput.value = profileSubtitle.textContent;
+  openPopupItem(popupEdit);
+}
+
+function createAddContent(evt)
+{
+  evt.preventDefault();
+  urlImage.value = ""; //устанавливаем значения
+  nameImage.value = "";
+  openPopupItem(popupAdd);
+}
+
+function createBigImgContent(evt)
+{
+  evt.preventDefault();
   popupImgItem.src = evt.target.src;
   popupCaption.textContent = evt.target.alt;
   popupImgItem.alt = evt.target.alt;
+  openPopupItem(popupImg);
 }
 
-//Заполнение шаблона картинки в галлерее
+ //открытие увеличенной картинки
+function initializeBigImg(evt) {
+  createBigImgContent(evt);
+  const exitImg = popupImg.querySelector(".popup__close-button_img");
+  exitImg.addEventListener("click", choosePopupClose);
+}
+
+function activateLikeButton(evt) {
+  evt.target.classList.toggle("element__like-button_active");
+}
+
+function removeCard(evt) {
+  evt.target.closest(".elements__item").remove();
+}
+
+//Заполнение шаблона картинки в галерее
 function createCard(itemLink, itemName) {
   //копия шаблона
   const card = cardTemplate.cloneNode(true);
@@ -43,18 +87,9 @@ function createCard(itemLink, itemName) {
   cardImg.src = itemLink;
   card.querySelector(".element__title").textContent = itemName;
   cardImg.alt = itemName;
-  card.querySelector(".element__like-button").addEventListener("click", function (evt) {
-    evt.target.classList.toggle("element__like-button_active");
-  })
-  card.querySelector(".element__remove").addEventListener("click", function (evt) {
-    evt.target.closest(".elements__item").remove();
-  });
-
-  cardImg.addEventListener("click", function (evt) {
-    openingBigImage(evt);
-    const exitImg = popupImg.querySelector(".popup__close-button_img");
-    exitImg.addEventListener("click", function () { popupImg.classList.remove("popup_opened") });
-  });
+  card.querySelector(".element__like-button").addEventListener("click", activateLikeButton)
+  card.querySelector(".element__remove").addEventListener("click", removeCard);
+  cardImg.addEventListener("click", initializeBigImg);
 
   return card;
 }
@@ -68,34 +103,6 @@ initialCards.forEach(function (item) {
 //отображение информации на странице. добавление в начало
 function renderCard(place, element) {
   place.prepend(element);
-  return;
-}
-
-//открытие/закрытие popup окон
-function displayPopupItem(evt) {
-  evt.preventDefault();
-  const eventTarget = evt.target;
-
-  //редактируется профиль
-  if (eventTarget.classList.contains("profile__edit-button")) {
-    popupEdit.classList.toggle("popup_opened");
-    nameInput.value = profileTitle.textContent; //устанавливаем значения
-    jobInput.value = profileSubtitle.textContent;
-  }
-
-  //добавляется картинка
-  if (eventTarget.classList.contains("profile__add-button")) {
-    popupAdd.classList.toggle("popup_opened");
-    urlImage.value = ""; //устанавливаем значения
-    nameImage.value = "";
-  }
-
-  if (eventTarget.classList.contains("popup__container_edit"))
-    popupEdit.classList.toggle("popup_opened");
-
-  if (eventTarget.classList.contains("popup__container_add"))
-    popupAdd.classList.toggle("popup_opened");
-
 }
 
 //отслеживание отправки информации от пользователя
@@ -107,32 +114,32 @@ function formSubmitHandler(evt) {
   if (eventTarget.classList.contains("popup__container_edit")) {
     profileTitle.textContent = nameInput.value;
     profileSubtitle.textContent = jobInput.value;
+    closePopupItem(popupEdit);
   }
 
   //добавляется картинка
   if (eventTarget.classList.contains("popup__container_add")) {
     const card = createCard(urlImage.value, nameImage.value);
     renderCard(cardList, card);
+    closePopupItem(popupAdd);
   }
-
-  //после сохранения закрываем popup
-  displayPopupItem(evt);
 }
 
-
-
 //отслеживание нажатия на кнопку редактирования
-editButton.addEventListener("click", displayPopupItem);
+editButton.addEventListener("click", createProfileContent);
+
 //отслеживание нажатия на кнопку добавления картинки
-addButton.addEventListener("click", displayPopupItem);
+addButton.addEventListener("click", createAddContent);
 
 //отслеживание отправки данных профиля
 popupContainerEdit.addEventListener("submit", formSubmitHandler);
+
 //отслеживание закрытия окна профиля
-popupContainerEdit.addEventListener("reset", displayPopupItem);
+popupContainerEdit.addEventListener("reset", choosePopupClose);
 
 //отслеживание отправки данных картинки
 popupContainerAdd.addEventListener("submit", formSubmitHandler);
+
 //отслеживание закрытия окна картинки
-popupContainerAdd.addEventListener("reset", displayPopupItem);
+popupContainerAdd.addEventListener("reset", choosePopupClose);
 
