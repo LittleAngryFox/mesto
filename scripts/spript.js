@@ -81,7 +81,6 @@ function createCard(itemLink, itemName) {
   card.querySelector(".element__like-button").addEventListener("click", activateLikeButton)
   card.querySelector(".element__remove").addEventListener("click", removeCard);
   cardImg.addEventListener("click", showImagePopup);
-
   return card;
 }
 
@@ -100,14 +99,12 @@ function renderCard(place, element) {
 function formSubmitHandler(evt) {
   evt.preventDefault();
   const eventTarget = evt.target;
-
   //редактируется профиль
   if (eventTarget.classList.contains("popup__container_edit")) {
     profileTitle.textContent = nameInput.value;
     profileSubtitle.textContent = jobInput.value;
     closePopup(popupEdit);
   }
-
   //добавляется картинка
   if (eventTarget.classList.contains("popup__container_add")) {
     const card = createCard(urlImage.value, nameImage.value);
@@ -118,19 +115,13 @@ function formSubmitHandler(evt) {
 
 //отслеживание нажатия на кнопку редактирования
 editButton.addEventListener("click", createProfileContent);
-
 //отслеживание нажатия на кнопку добавления картинки
 addButton.addEventListener("click", createAddContent);
-
 //отслеживание отправки данных профиля
 popupContainerEdit.addEventListener("submit", formSubmitHandler);
-
 //отслеживание закрытия окна профиля
 popupContainerEdit.addEventListener("reset", () => { closePopup(popupEdit) });
-
 //отслеживание отправки данных картинки
 popupContainerAdd.addEventListener("submit", formSubmitHandler);
-
 //отслеживание закрытия окна картинки
 popupContainerAdd.addEventListener("reset", () => { closePopup(popupAdd) });
-
