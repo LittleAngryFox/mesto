@@ -28,11 +28,14 @@ const cardList = document.querySelector(".elements__list");
 //открытие/закрытие popup окон
 const openPopup = (popupForm) => {
   popupForm.classList.add("popup_opened");
+  //закрытие через esc
+  document.addEventListener("keydown", keyEsc);
 }
 
 const closePopup = (popupForm) => {
   popupForm.classList.remove("popup_opened");
   removeErrorField();
+  document.removeEventListener("keydown", keyEsc);
 }
 
 const createProfileContent = (evt) => {
@@ -183,8 +186,6 @@ popupContainerEdit.addEventListener("reset", () => { closePopup(popupEdit) });
 popupContainerAdd.addEventListener("reset", () => { closePopup(popupAdd) });
 //действия над карточкой (лайк, открытие, удаление)
 cardList.addEventListener("click", changeOfCardState);
-//закрытие через esc
-document.addEventListener("keydown", keyEsc);
 //закрытие по нажатию на оверлей
 content.addEventListener("mousedown", closeOverlayPopup);
 
