@@ -30,12 +30,15 @@ const openPopup = (popupForm) => {
   popupForm.classList.add("popup_opened");
   //закрытие через esc
   document.addEventListener("keydown", keyEsc);
+  //закрытие по нажатию на оверлей
+  content.addEventListener("mousedown", closeOverlayPopup);
 }
 
 const closePopup = (popupForm) => {
   popupForm.classList.remove("popup_opened");
   removeErrorField();
   document.removeEventListener("keydown", keyEsc);
+  content.removeEventListener("mousedown", closeOverlayPopup);
 }
 
 const createProfileContent = (evt) => {
@@ -171,9 +174,7 @@ const keyEsc = (evt) => {
 
 //закрытие по нажатию на overlay
 const closeOverlayPopup = (evt) => {
-  if (evt.target.classList.contains("popup")) {
     closePopup(evt.target);
-  }
 };
 
 //отслеживание нажатия на кнопку редактирования
@@ -186,7 +187,5 @@ popupContainerEdit.addEventListener("reset", () => { closePopup(popupEdit) });
 popupContainerAdd.addEventListener("reset", () => { closePopup(popupAdd) });
 //действия над карточкой (лайк, открытие, удаление)
 cardList.addEventListener("click", changeOfCardState);
-//закрытие по нажатию на оверлей
-content.addEventListener("mousedown", closeOverlayPopup);
 
 
