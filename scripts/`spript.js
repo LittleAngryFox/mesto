@@ -139,6 +139,8 @@ const formSubmitHandler = (evt) => {
     if (eventTarget.classList.contains("popup__container_add")) {
       const card = createCard(urlImage.value, nameImage.value);
       renderCard(cardList, card);
+      popupContainerAdd.reset();
+      evt.submitter.classList.add("popup__button_disabled");
       closePopup(popupAdd);
     }
   }
