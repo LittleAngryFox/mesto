@@ -1,4 +1,4 @@
-.popup__item {
+.popup__input {
   border: 0;
   margin: 0 0 29.54px 0;
 
@@ -17,20 +17,16 @@
   color: #000000;
 }
 
-.popup__item:last-child {
-  margin: 0 0 48px 0;
-}
-
-.popup__item:focus {
+.popup__input:focus {
   outline-color: #fff6c5;
 }
 
 @media screen and (max-width: 540px) {
-  .popup__item  {
+  .popup__input  {
     width: 210px;
   }
 
-  .popup__item:nth-child(2) {
+  .popup__input:nth-child(2) {
     margin: 0 0 30px 0;
   }
 }

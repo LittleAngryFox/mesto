@@ -26,33 +26,39 @@
       </div>
 
       <div class="popup popup_edit-profile">
-        <form class="popup__container popup__container_edit" name="popup__container">
+        <form class="popup__container popup__container_edit" name="popup__container" novalidate>
           <h2 class="popup__heading">Редактировать профиль</h2>
 
           <fieldset class="popup__input-container">
 
-            <input type="text" maxlength="25" class="popup__item popup__item_heading" id="heading" name="heading"
+            <input type="text" minlength="2" maxlength="40" class="popup__input popup__input_heading" id="heading" name="heading"
               placeholder="Имя профиля" required>
-            <input type="text" maxlength="40" class="popup__item popup__item_subheading" id="subheading"
-              name="subheading" placeholder="Краткое описание" required>
+              <span class="popup__placeholder" id="heading-error"></span>
+            <input type="text" minlength="2" maxlength="200" class="popup__input popup__input_subheading" id="subheading"
+              name="subheading" placeholder="О себе" required>
+              <span class="popup__placeholder" id="subheading-error"></span>
 
             <button type="submit" class="popup__button popup__button_save">Сохранить</button>
             <button type="reset" class="popup__close-button"></button>
 
           </fieldset>
         </form>
+
       </div>
 
       <div class="popup popup_add">
-        <form class="popup__container popup__container_add" name="popup__container">
+        <form class="popup__container popup__container_add" name="popup__container" novalidate>
           <h2 class="popup__heading">Новое место</h2>
 
           <fieldset class="popup__input-container">
 
-            <input type="text" class="popup__item popup__item_picture" id="picture" name="heading"
+            <input type="text" minlength="1" maxlength="30" class="popup__input popup__input_picture" id="name-picture" name="name-picture"
               placeholder="Название" required>
-            <input type="url" class="popup__item popup__item_imgurl" id="imgurl" name="url"
+              <span class="popup__placeholder" id="name-picture-error"></span>
+
+            <input type="url" class="popup__input popup__input_imgurl" id="imgurl" name="imgurl"
               placeholder="Ссылка на картинку" required>
+              <span class="popup__placeholder" id="imgurl-error"></span>
 
             <button type="submit" class="popup__button popup__button_add">Создать</button>
             <button type="reset" class="popup__close-button"></button>
@@ -97,8 +103,9 @@
       </div>
     </li>
   </template>
-  <script src="./scripts/initial-сards.js"></script> "
-  <script src="./scripts/spript.js"></script>
+  <script src="./scripts/initial-сards.js"></script>
+  <script src="./scripts/validate.js"></script>
+  <script src="./scripts/`spript.js"></script>
 </body>
 
 </html>

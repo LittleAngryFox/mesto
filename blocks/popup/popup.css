@@ -4,9 +4,10 @@
 
 @import url(./__input-container/popup__input-container.css);
 
-@import url(./__item/popup__item.css);
+@import url(./__input/popup__input.css);
 
 @import url(./__button/popup__button.css);
+@import url(./__button/_disabled/popup__button_disabled.css);
 @import url(./__close-button/popup__close-button.css);
 @import url(./__close-button/_img/popup__close-button_img.css);
 
@@ -14,7 +15,10 @@
 @import url(./__caption/popup__caption.css);
 @import url(./__img-item/popup__img-item.css);
 
+@import url(./__input-error/popup__input-error.css);
 
+@import url(./__placeholder/popup__placeholder.css);
+@import url(./__input-error/_active/popup__input-error_active.css);
 
 .popup {
   width:100vw;
@@ -29,4 +33,5 @@
   visibility: hidden;
   opacity: 0;
   transition: .55s opacity, .55s visibility;
+  cursor: pointer;
 }
