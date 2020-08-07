@@ -34,4 +34,7 @@
   opacity: 0;
   transition: .55s opacity, .55s visibility;
   cursor: pointer;
+
+  color: #FFFFFF;
+  font-family: 'Inter', Arial, sans-serif;
 }

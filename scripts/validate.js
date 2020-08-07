@@ -43,7 +43,9 @@ const enableValidation = (formSelector, inputSelector, setSelector, submitButton
 
   //обработчик отправки в форме
   formList.forEach((formElement) => {
-    formElement.addEventListener("submit", formSubmitHandler);
+    formElement.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+    });
     //список областей ввода
     const fieldsetList = Array.from(formElement.querySelectorAll(setSelector));
     fieldsetList.forEach((fieldset) => {
