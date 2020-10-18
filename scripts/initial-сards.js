@@ -35,3 +35,5 @@ const object = {
   inputErrorClass: "popup__input-error",
   errorClass: "popup__input-error_active"
 };
+
+export {initialCards, object};
