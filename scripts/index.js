@@ -1,6 +1,6 @@
 import { initialCards, object } from "./initial-сards.js";
 import { Card } from "./Card.js";
-import { FormValidator } from "./validate.js";
+import { FormValidator } from "./FormValidator.js";
 
 const content = document.querySelector(".content");
 
