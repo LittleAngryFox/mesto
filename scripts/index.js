@@ -1,4 +1,5 @@
 import { initialCards, object } from "./initial-сards.js";
+import { openPopup, closePopup } from "./utils.js";
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 
@@ -24,115 +25,70 @@ const urlImage = popupAdd.querySelector(".popup__input_imgurl");
 const cardList = document.querySelector(".elements__list");
 const templateSelector = ".card__template";
 
-initialCards.forEach((item) => {
-  const card = new Card(item, templateSelector);
+//создание экз. класса Card
+const render = (data, selector, place) => {
+  const card = new Card(data, selector);
   const cardElement = card.generateCard();
 
-  cardList.append(cardElement);
+  switch (place) {
+    case "append": {
+      cardList.append(cardElement);
+      break;
+    }
+    case "prepend": {
+      cardList.prepend(cardElement);
+      break;
+    }
+  }
+}
+
+initialCards.forEach((item) => {
+  render(item, templateSelector, "append");
 });
-
-//открытие/закрытие popup окон
-const openPopup = (popupForm) => {
-  popupForm.classList.add("popup_opened");
-  //закрытие через esc
-  document.addEventListener("keydown", keyEsc);
-  //закрытие по нажатию на оверлей
-  document.addEventListener("mousedown", closeOverlayPopup);
-};
-
-const closePopup = (popupForm) => {
-  popupForm.classList.remove("popup_opened");
-  document.removeEventListener("keydown", keyEsc);
-  document.removeEventListener("mousedown", closeOverlayPopup);
-};
 
 //активна кнопка или нет
 const hasDisabledButton = (buttonElement) => {
   return buttonElement.classList.contains(object.inactiveButtonClass);
 };
 
-const activeButtonDefault = (form) => {
-  const buttonElement = form.querySelector(".popup__button");
-  buttonElement.classList.remove("popup__button_disabled");
-};
-
+//редактирование профиля
 const createProfileContent = (evt) => {
   evt.preventDefault();
-  activeButtonDefault(popupContainerEdit);
-  removeErrorField(popupContainerEdit);
+  formProfile.activeButtonDefault();
+  formProfile.removeErrorField();
   nameInput.value = profileTitle.textContent; //устанавливаем значения
   jobInput.value = profileSubtitle.textContent;
   openPopup(popupEdit);
 };
 
+//добавление картинок
 const createAddContent = (evt) => {
   evt.preventDefault();
-  removeErrorField(popupContainerAdd);
+  formAdd.removeErrorField();
   urlImage.value = ""; //устанавливаем значения
   nameImage.value = "";
   openPopup(popupAdd);
 };
 
-//скрытие ошибок при закрытии popup
-const removeErrorField = (form) => {
-  const errorList = Array.from(form.querySelectorAll(".popup__placeholder"));
-  const inputList = Array.from(form.querySelectorAll(".popup__input"));
-
-  errorList.forEach((errorElement) => {
-    if (errorElement.classList.contains("popup__input-error_active")) {
-      errorElement.classList.remove("popup__input-error_active");
-    }
-  });
-
-  inputList.forEach((inputElement) => {
-    if (inputElement.classList.contains("popup__input-error")) {
-      inputElement.classList.remove("popup__input-error");
-    }
-  });
-};
-
 //отслеживание отправки информации по профилю от пользователя
 const formSubmitHandlerEdit = (evt) => {
   evt.preventDefault();
-  const eventTarget = evt.target;
   if (!hasDisabledButton(evt.submitter, "popup__button_disabled")) {
     profileTitle.textContent = nameInput.value;
     profileSubtitle.textContent = jobInput.value;
     closePopup(popupEdit);
-    removeErrorField(popupContainerEdit);
+    formProfile.removeErrorField();
   }
 };
 
 //отслеживание отправки информации по новой картинке от пользователя
 const formSubmitHandlerAdd = (evt) => {
-  // evt.preventDefault();
-  const eventTarget = evt.target;
   if (!hasDisabledButton(evt.submitter, "popup__button_disabled")) {
     const data = { name: nameImage.value, link: urlImage.value };
-    const card = new Card(data, templateSelector);
-    const cardElement = card.generateCard();
-    cardList.prepend(cardElement);
-    //const card = createCard(urlImage.value, nameImage.value);
-    //renderCard(cardList, card);
+    render(data, templateSelector, "prepend");
     popupContainerAdd.reset();
     evt.submitter.classList.add("popup__button_disabled");
     closePopup(popupAdd);
-  }
-};
-
-//закрытие по клавише esc
-const keyEsc = (evt) => {
-  if (evt.key === "Escape") {
-    const openedPopup = document.querySelector(".popup_opened");
-    closePopup(openedPopup);
-  }
-};
-
-//закрытие по нажатию на overlay
-const closeOverlayPopup = (evt) => {
-  if (evt.target.classList.contains("popup")) {
-    const openedPopup = document.querySelector(".popup_opened");
-    closePopup(openedPopup);
   }
 };
 
@@ -151,9 +107,8 @@ popupContainerEdit.addEventListener("reset", () => { closePopup(popupEdit) });
 //отслеживание закрытия окна картинки
 popupContainerAdd.addEventListener("reset", () => { closePopup(popupAdd) });
 
+//включение валидации форм
 const formProfile = new FormValidator(object, popupContainerEdit);
-const formAdd = new FormValidator(object, popupContainerAdd );
+const formAdd = new FormValidator(object, popupContainerAdd);
 formProfile.enableValidation();
 formAdd.enableValidation();
-
-export { openPopup, closePopup };

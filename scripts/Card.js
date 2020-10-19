@@ -1,4 +1,4 @@
-import { openPopup, closePopup } from "./index.js"
+import { openPopup, closePopup } from "./utils.js"
 
 export class Card {
   constructor(data, cardSelector) { //SelectorCard = "card__template"
@@ -14,13 +14,13 @@ export class Card {
     return cardElement;
   }
 
-
   generateCard = () => {
     this._element = this._getTemplate();
+    this._elementImg = this._element.querySelector(".element__img");
     this._setEventListeners();
 
-    this._element.querySelector(".element__img").src = this._image;
-    this._element.querySelector(".element__img").alt = this._title;
+    this._elementImg.src = this._image;
+    this._elementImg.alt = this._title;
     this._element.querySelector(".element__title").textContent = this._title;
 
     return this._element;
@@ -56,7 +56,7 @@ export class Card {
     this._element.querySelector(".element__remove").addEventListener("click", () => {
       this._handleMessageClickRemove();
     });
-    this._element.querySelector(".element__img").addEventListener("click", () => {
+    this._elementImg.addEventListener("click", () => {
       this._handleMessageClickImage();
     });
   }
