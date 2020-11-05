@@ -12,7 +12,7 @@ export class FormValidator {
   }
 
   //запуск проверки на валидность
-  enableValidation = () => {
+  enableValidation() {
     //валидируемая форма
     //обработчик отправки в форме
     this._formValidator.addEventListener("submit", (evt) => {
@@ -31,7 +31,7 @@ export class FormValidator {
   }
 
   //проверить на наличие ошибок
-  _checkInputValidity = (inputElement) => {
+  _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
       this._showInputError(inputElement);
     } else {
@@ -40,7 +40,7 @@ export class FormValidator {
   };
 
   //обрабатываем поля ввода и кнопки
-  _setEventListeners = () => {
+  _setEventListeners() {
 
     //список полей ввода в области
     this._inputList = Array.from(this._fieldset.querySelectorAll(this._inputSelector));
@@ -59,7 +59,7 @@ export class FormValidator {
   }
 
   //смена активации кнопки
-  _toggleButtonState = () => {
+  _toggleButtonState() {
     if (this._hasInvalidInput()) {
       this._buttonElement.classList.add(this._inactiveButtonClass);
       this._buttonElement.disabled = true;
@@ -70,14 +70,14 @@ export class FormValidator {
   };
 
   //проверка на валидность
-  _hasInvalidInput = () => {
+  _hasInvalidInput() {
     return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     })
   };
 
   //показать ошибку
-  _showInputError = (inputElement) => {
+  _showInputError(inputElement) {
     const errorElement = this._fieldset.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.add(this._inputErrorClass);
     errorElement.textContent = inputElement.validationMessage;
@@ -85,7 +85,7 @@ export class FormValidator {
   };
 
   //скрыть ошибку
-  _hideInputError = (inputElement) => {
+  _hideInputError(inputElement) {
     const errorElement = this._fieldset.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.remove(this._inputErrorClass);
     errorElement.classList.remove(this._errorClass);
@@ -93,15 +93,14 @@ export class FormValidator {
   };
 
   //активация кнопки по умолчанию
-  activeButtonDefault = () => {
+  activeButtonDefault() {
     this._buttonElement.classList.remove(this._inactiveButtonClass);
     this._buttonElement.disabled = false;
   };
 
   //скрытие ошибок при закрытии popup
-  removeErrorField = () => {
+  removeErrorField() {
     const errorList = Array.from(this._formValidator.querySelectorAll(".popup__placeholder"));
-    const inputList = Array.from(this._formValidator.querySelectorAll(this._inputSelector));
 
     errorList.forEach((errorElement) => {
       if (errorElement.classList.contains(this._errorClass)) {
@@ -109,7 +108,7 @@ export class FormValidator {
       }
     });
 
-    inputList.forEach((inputElement) => {
+    this._inputList.forEach((inputElement) => {
       if (inputElement.classList.contains(this._inputErrorClass)) {
         inputElement.classList.remove(this._inputErrorClass);
       }

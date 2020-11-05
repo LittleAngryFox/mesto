@@ -36,4 +36,16 @@ const object = {
   errorClass: "popup__input-error_active"
 };
 
+export const content = document.querySelector(".content");
+export const profile = content.querySelector(".profile");//Информация о имени и сфере деятельности
+export const editButton = profile.querySelector(".profile__edit-button"); //кнопка редактирования
+export const addButton = profile.querySelector(".profile__add-button"); //кнопка добавления
+export const popupContainerEdit = document.querySelector(".popup__container_edit"); //форма редактирования
+export const popupContainerAdd = document.querySelector(".popup__container_add"); //форма редактирования
+export const templateSelector = ".card__template";
+export const nameInput = document.querySelector(".popup_edit-profile").querySelector(".popup__input_heading"); //Инпуты
+export const jobInput = document.querySelector(".popup_edit-profile").querySelector(".popup__input_subheading");
+export const nameImage = document.querySelector(".popup_add").querySelector(".popup__input_picture");
+export const urlImage = document.querySelector(".popup_add").querySelector(".popup__input_imgurl");
+
 export {initialCards, object};

@@ -1,20 +1,19 @@
-import { openPopup, closePopup } from "./utils.js"
-
 export class Card {
-  constructor(data, cardSelector) { //SelectorCard = "card__template"
+  constructor(data, handleCardClick, cardSelector) { //SelectorCard = "card__template"
     this._title = data.name;
     this._image = data.link;
     this._isLike = false;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
 
-  _getTemplate = () => { //шаблон
+  _getTemplate() { //шаблон
     const cardElement = document.querySelector(this._cardSelector).content.querySelector(".elements__item").cloneNode(true);
 
     return cardElement;
   }
 
-  generateCard = () => {
+  generateCard() {
     this._element = this._getTemplate();
     this._elementImg = this._element.querySelector(".element__img");
     this._setEventListeners();
@@ -26,30 +25,20 @@ export class Card {
     return this._element;
   }
 
-  _handleMessageClickLike = () => {
+  _handleMessageClickLike() {
     this._element.querySelector(".element__like-button").classList.toggle("element__like-button_active");
   }
 
-  _handleMessageClickRemove = () => {
+  _handleMessageClickRemove() {
     this._element.querySelector(".element__remove").closest(".elements__item").remove();
     this._element = null;
   }
 
-  _handleMessageClickImage = () => {
-    const popupImg = document.querySelector(".popup_image"); //блок добавления увеличенной катинки
-    const popupImgItem = popupImg.querySelector(".popup__img-item"); //Информация о картинке
-    const popupCaption = popupImg.querySelector(".popup__caption");
-    popupImgItem.src = this._image;
-    popupCaption.textContent = this._title;
-    popupImgItem.alt = this._title;
-
-    openPopup(popupImg);
-
-    const exitImg = popupImg.querySelector(".popup__close-button_img");
-    exitImg.addEventListener("click", () => { closePopup(popupImg); });
+  _handleMessageClickImage() {
+    this._handleCardClick(this._image, this._title);
   }
 
-  _setEventListeners = () => {
+  _setEventListeners() {
     this._element.querySelector(".element__like-button").addEventListener("click", () => {
       this._handleMessageClickLike();
     });
