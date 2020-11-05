@@ -28,6 +28,6 @@
 
 **Сайт**
 
-https://littleangryfox.github.io/mesto/
+https://littleangryfox.github.io/mesto/src
 
 
