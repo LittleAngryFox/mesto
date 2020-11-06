@@ -7,6 +7,7 @@ export class FormValidator {
       this._inactiveButtonClass = objectForm.inactiveButtonClass,
       this._inputErrorClass = objectForm.inputErrorClass,
       this._errorClass = objectForm.errorClass;
+    this._popupPlaceholder = objectForm.popupPlaceholder;
     this._formValidator = form;
     this._fieldset = null;
   }
@@ -18,16 +19,7 @@ export class FormValidator {
     this._formValidator.addEventListener("submit", (evt) => {
       evt.preventDefault();
     });
-
-    //список областей ввода
-    const fieldsetList = Array.from(this._formValidator.querySelectorAll(this._setSelector));
-
-    //вешаем на поля ввода обработчики
-    fieldsetList.forEach((fieldset) => {
-      this._fieldset = fieldset;
-      this._setEventListeners();
-    });
-
+    this._setEventListeners();
   }
 
   //проверить на наличие ошибок
@@ -41,11 +33,10 @@ export class FormValidator {
 
   //обрабатываем поля ввода и кнопки
   _setEventListeners() {
-
     //список полей ввода в области
-    this._inputList = Array.from(this._fieldset.querySelectorAll(this._inputSelector));
+    this._inputList = Array.from(this._formValidator.querySelectorAll(this._inputSelector));
     //кнопка отправить в форме
-    this._buttonElement = this._fieldset.querySelector(this._submitButtonSelector);
+    this._buttonElement = this._formValidator.querySelector(this._submitButtonSelector);
 
     this._toggleButtonState();
 
@@ -78,7 +69,7 @@ export class FormValidator {
 
   //показать ошибку
   _showInputError(inputElement) {
-    const errorElement = this._fieldset.querySelector(`#${inputElement.id}-error`);
+    const errorElement = this._formValidator.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.add(this._inputErrorClass);
     errorElement.textContent = inputElement.validationMessage;
     errorElement.classList.add(this._errorClass);
@@ -86,7 +77,7 @@ export class FormValidator {
 
   //скрыть ошибку
   _hideInputError(inputElement) {
-    const errorElement = this._fieldset.querySelector(`#${inputElement.id}-error`);
+    const errorElement = this._formValidator.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.remove(this._inputErrorClass);
     errorElement.classList.remove(this._errorClass);
     errorElement.textContent = "";
@@ -98,9 +89,15 @@ export class FormValidator {
     this._buttonElement.disabled = false;
   };
 
+
+  disabledButton() {
+    this._buttonElement.classList.add(this._inactiveButtonClass);
+    this._buttonElement.disabled = true;
+  }
+
   //скрытие ошибок при закрытии popup
   removeErrorField() {
-    const errorList = Array.from(this._formValidator.querySelectorAll(".popup__placeholder"));
+    const errorList = Array.from(this._formValidator.querySelectorAll(this._popupPlaceholder));
 
     errorList.forEach((errorElement) => {
       if (errorElement.classList.contains(this._errorClass)) {

@@ -15,9 +15,6 @@ export default class PopupWithImage extends Popup {
     popupImgItem.alt = title;
 
     super.openPopup();
-
-    const exitImg = this._popupForm.querySelector(".popup__close-button_img");
-    exitImg.addEventListener("click", () => { super.closePopup(); });
   }
 
 }

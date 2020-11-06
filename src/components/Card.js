@@ -30,7 +30,7 @@ export class Card {
   }
 
   _handleMessageClickRemove() {
-    this._element.querySelector(".element__remove").closest(".elements__item").remove();
+    this._element.remove();
     this._element = null;
   }
 

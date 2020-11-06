@@ -33,7 +33,8 @@ const object = {
   submitButtonSelector: ".popup__button",
   inactiveButtonClass: "popup__button_disabled",
   inputErrorClass: "popup__input-error",
-  errorClass: "popup__input-error_active"
+  errorClass: "popup__input-error_active",
+  popupPlaceholder: ".popup__placeholder"
 };
 
 export const content = document.querySelector(".content");
@@ -48,4 +49,4 @@ export const jobInput = document.querySelector(".popup_edit-profile").querySelec
 export const nameImage = document.querySelector(".popup_add").querySelector(".popup__input_picture");
 export const urlImage = document.querySelector(".popup_add").querySelector(".popup__input_imgurl");
 
-export {initialCards, object};
+export { initialCards, object };

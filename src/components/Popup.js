@@ -9,7 +9,6 @@ export default class Popup {
     document.addEventListener("keydown", this._handleEscClose.bind(this));
     //закрытие по нажатию на оверлей
     document.addEventListener("mousedown", this._closeOverlayPopup.bind(this));
-    this.setEventListeners();
   };
 
   closePopup() {

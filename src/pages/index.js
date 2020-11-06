@@ -9,64 +9,38 @@ import {
 } from "../utils/initial-сards.js";
 import { Card } from "../components/Card.js";
 import { FormValidator } from "../components/FormValidator.js";
-import Popup from "../components/Popup.js";
 import Section from "../components/Section.js"
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 
+const imagePopup = new PopupWithImage(".popup_image");
+const handleCardClick = (image, title) => imagePopup.openPopup(image, title);
 
+const render = (data, place) => {
+  const card = new Card(data, handleCardClick, templateSelector);
+  const cardElement = card.generateCard();
+  cardListInit.addItem(cardElement, place);
+}
 
-//создание экз. класса Card
+//инициализация
 const cardListInit = new Section({
   data: initialCards,
   renderer: (item) => {
-    const imagePopup = new PopupWithImage(".popup_image");
-    const handleCardClick = (image, title) => imagePopup.openPopup(image, title);
-    const card = new Card(item, handleCardClick, templateSelector);
-
-    const cardElement = card.generateCard();
-
-    cardListInit.addItem(cardElement, "append");
-
+    render(item, "append");
   },
 }, ".elements__list");
 
 //отрисовка начальных карточек
 cardListInit.renderItems();
 
-const popupEdit = new Popup(".popup_edit-profile");
-const popupAdd = new Popup(".popup_add");
-
+//информация профиля
 const userProrile = new UserInfo({
   selectorUserName: ".profile__title",
   selectoruserDescription: ".profile__subtitle"
 });
 
 //редактирование профиля
-const createProfileContent = (evt) => {
-  evt.preventDefault();
-
-  const info = userProrile.getUserInfo();
-  nameInput.value = info.name; //устанавливаем значения
-  jobInput.value = info.description;
-
-  formProfile.activeButtonDefault();
-  formProfile.removeErrorField();
-  popupEdit.openPopup();
-};
-
-//добавление картинок
-const createAddContent = (evt) => {
-  evt.preventDefault();
-  formAdd.removeErrorField();
-
-  urlImage.value = ""; //устанавливаем значения
-  nameImage.value = "";
-
-  popupAdd.openPopup();
-};
-
 const popupWithFormProfile = new PopupWithForm({
   selectorPopup: ".popup_edit-profile",
   formSubmitHandler: (data) => {
@@ -76,34 +50,49 @@ const popupWithFormProfile = new PopupWithForm({
   }
 });
 
+//иницилизация попапа редактирования профиля
+const createProfileContent = (evt) => {
+  evt.preventDefault();
+
+  const info = userProrile.getUserInfo();
+  nameInput.value = info.name; //устанавливаем значения
+  jobInput.value = info.description;
+
+  formProfile.activeButtonDefault();
+  formProfile.removeErrorField();
+  popupWithFormProfile.openPopup();
+};
+
+//добавление карточек
 const popupWithFormAdd = new PopupWithForm({
   selectorPopup: ".popup_add",
   formSubmitHandler: (data) => {
-    const cardListAdd = new Section({
-      data: [data],
-      renderer: (item) => {
-        const imagePopup = new PopupWithImage(".popup_image");
-        const handleCardClick = (image, title) => imagePopup.openPopup(image, title);
-        const card = new Card({ name: item["name-picture"], link: item["imgurl"] }, handleCardClick, templateSelector);
-        const cardElement = card.generateCard();
-
-        cardListAdd.addItem(cardElement, "prepend");
-      },
-    }, ".elements__list");
-
-    cardListAdd.renderItems();
+    render({ name: data["name-picture"], link: data["imgurl"] }, "prepend");
+    cardListInit.renderItems();
     popupWithFormAdd.closePopup();
   }
 });
+
+//иницилизация попапа добавления карточек
+const createAddContent = (evt) => {
+  evt.preventDefault();
+  formAdd.disabledButton();
+  formAdd.removeErrorField();
+  urlImage.value = ""; //устанавливаем значения
+  nameImage.value = "";
+
+  popupWithFormAdd.openPopup();
+};
 
 //отслеживание нажатия на кнопку редактирования
 editButton.addEventListener("click", createProfileContent);
 //отслеживание нажатия на кнопку добавления картинки
 addButton.addEventListener("click", createAddContent);
 
-//отслеживание отправки данных форм
+//отслеживание закрытия на крестик
 popupWithFormAdd.setEventListeners();
 popupWithFormProfile.setEventListeners();
+imagePopup.setEventListeners();
 
 //включение валидации форм
 const formProfile = new FormValidator(object, popupContainerEdit);
