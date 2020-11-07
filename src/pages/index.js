@@ -68,7 +68,6 @@ const popupWithFormAdd = new PopupWithForm({
   selectorPopup: ".popup_add",
   formSubmitHandler: (data) => {
     render({ name: data["name-picture"], link: data["imgurl"] }, "prepend");
-    cardListInit.renderItems();
     popupWithFormAdd.closePopup();
   }
 });
