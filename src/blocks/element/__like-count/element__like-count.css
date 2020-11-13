@@ -1,0 +1,17 @@
+.element__like-count {
+  margin: 0;
+  padding: 0;
+
+  grid-row: 2;
+  grid-column: 1;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 1.23;
+  text-align: center;
+
+  color: #000000;
+
+  align-self: center;
+}

@@ -1,0 +1,13 @@
+.element__like {
+  width: 20px;
+  height: 34px;
+
+  display: grid;
+  padding: 0;
+  margin: 0 24px 0 0;
+  justify-self: end;
+
+  grid-template-columns: repeat(1, minmax(min-content, max-content));
+  grid-template-rows: repeat(2, minmax(min-content, max-content));
+  grid-row-gap: 3px;
+}

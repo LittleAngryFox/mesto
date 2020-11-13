@@ -9,8 +9,8 @@ export default class Section {
   }
 
   //отрисовка элементов при помощи renderer
-  renderItems() {
-    this._renderedItems.forEach(item => this._renderer(item));
+  renderItems(data) {
+    data.forEach(item => this._renderer(item));
   }
 
   //добавление DOM-элемента в контейнер

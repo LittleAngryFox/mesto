@@ -1,4 +1,7 @@
 .profile__photo {
-  max-height: 120px;
+  height: 120px;
+  width: 120px;
   border-radius: 100px; /* Радиус скругления */
+  object-fit: cover;
 }
+

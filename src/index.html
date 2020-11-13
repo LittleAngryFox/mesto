@@ -17,7 +17,10 @@
     <main class="content">
 
       <section class="profile">
-        <img src="./images/Jack-Iv_Kusto_avatar.jpg" alt="Жак-Ив Кусто" class="profile__photo">
+        <div class="profile__photo-case">
+          <img src="./images/Jack-Iv_Kusto_avatar.jpg" alt="Жак-Ив Кусто" class="profile__photo">
+          <button type="button" class="profile__photo-update-button">
+        </div>
 
         <div class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -47,7 +50,10 @@
         <img src="#" alt="Шаблон" class="element__img">
         <p class="element__title"></p>
         <button type="button" class="element__remove"></button>
-        <button type="button" class="element__like-button"></button>
+        <div class="element__like">
+          <button type="button" class="element__like-button"></button>
+          <p class="element__like-count">0</p>
+        </div>
       </div>
     </li>
   </template>
@@ -98,6 +104,31 @@
         <button type="reset" class="popup__close-button"></button>
 
       </fieldset>
+    </form>
+  </div>
+
+  <div class="popup popup_update-avatar">
+    <form class="popup__container popup__container_update-avatar" name="popup__update-avatar" novalidate>
+      <h2 class="popup__heading">Обновить аватар</h2>
+
+      <fieldset class="popup__input-container">
+
+        <input type="url" class="popup__input popup__input_imgurl" id="imgurl" name="imgurl"
+          placeholder="Ссылка на картинку" required>
+        <span class="popup__placeholder" id="imgurl-error"></span>
+
+        <button type="submit" class="popup__button popup__button_update-avatar">Сохранить</button>
+        <button type="reset" class="popup__close-button"></button>
+
+      </fieldset>
+    </form>
+  </div>
+
+  <div class="popup popup_delete-confirmation">
+    <form class="popup__container popup__container_delete-confirmation" name="popup__delete-confirmation" novalidate>
+      <h2 class="popup__heading popup__heading_delete">Вы уверены?</h2>
+        <button type="submit" class="popup__button popup__button_delete-confirmation">Да</button>
+        <button type="reset" class="popup__close-button"></button>
     </form>
   </div>
 

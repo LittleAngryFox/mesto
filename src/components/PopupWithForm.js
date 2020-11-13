@@ -20,6 +20,17 @@ export default class PopupWithForm extends Popup {
     this._userDescription.textContent = subheading;
   }
 
+  waitLoad(text) {
+    this._buttonWhitText = this._formElement.querySelector(".popup__button");
+    this._firstText = this._buttonWhitText.textContent;
+    this._buttonWhitText.textContent = text;
+  }
+
+  endLoad() {
+    this._buttonWhitText.textContent = this._firstText;
+  }
+
+
   setEventListeners() {
     super.setEventListeners();
     //отслеживание отправки данных профиля
