@@ -71,8 +71,6 @@ const popupWithFormProfile = new PopupWithForm({
         formProfile.removeErrorField();
       })
       .catch((err) => {
-        popupWithFormProfile.closePopup();
-        formProfile.removeErrorField();
         popupWithFormProfile.endLoad();
         console.log(err); // выведем ошибку в консоль
       })
@@ -116,7 +114,6 @@ const popupDeleteConfirmation = new PopupWithConfirm({
         popupDeleteConfirmation.closePopup();
       })
       .catch((err) => {
-        popupDeleteConfirmation.closePopup();
         console.log(err); // выведем ошибку в консоль
       })
   }
@@ -164,13 +161,9 @@ const popupWithUpdateAvatar = new PopupWithForm({
         imageCard.src = data.avatar;
         popupWithUpdateAvatar.closePopup();
         formUpdate.removeErrorField();
-
       })
       .catch((err) => {
-        popupWithUpdateAvatar.closePopup();
-        formUpdate.removeErrorField();
         popupWithUpdateAvatar.endLoad();
-
         console.log(err); // выведем ошибку в консоль
       })
       .finally(() => {
@@ -201,7 +194,6 @@ const popupWithFormAdd = new PopupWithForm({
         popupWithFormAdd.closePopup();
       })
       .catch((err) => {
-        popupWithFormAdd.closePopup();
         console.log(err); // выведем ошибку в консоль
         popupWithFormAdd.endLoad();
       })

@@ -52,11 +52,9 @@ export class FormValidator {
   //смена активации кнопки
   _toggleButtonState() {
     if (this._hasInvalidInput()) {
-      this._buttonElement.classList.add(this._inactiveButtonClass);
-      this._buttonElement.disabled = true;
+      this.disabledButton();
     } else {
-      this._buttonElement.classList.remove(this._inactiveButtonClass);
-      this._buttonElement.disabled = false;
+      this.activeButtonDefault();
     }
   };
 
@@ -81,6 +79,7 @@ export class FormValidator {
     inputElement.classList.remove(this._inputErrorClass);
     errorElement.classList.remove(this._errorClass);
     errorElement.textContent = "";
+
   };
 
   //активация кнопки по умолчанию
@@ -97,19 +96,7 @@ export class FormValidator {
 
   //скрытие ошибок при закрытии popup
   removeErrorField() {
-    const errorList = Array.from(this._formValidator.querySelectorAll(this._popupPlaceholder));
-
-    errorList.forEach((errorElement) => {
-      if (errorElement.classList.contains(this._errorClass)) {
-        errorElement.classList.remove(this._errorClass);
-      }
-    });
-
-    this._inputList.forEach((inputElement) => {
-      if (inputElement.classList.contains(this._inputErrorClass)) {
-        inputElement.classList.remove(this._inputErrorClass);
-      }
-    });
+    this._inputList.forEach(input => this._hideInputError(input));
   };
 
 }
